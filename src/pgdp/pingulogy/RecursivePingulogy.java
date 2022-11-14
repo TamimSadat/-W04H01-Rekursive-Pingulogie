@@ -51,12 +51,28 @@ public class RecursivePingulogy {
 		}
 	}
 
+	static int ze = 0;
 	// task 3
 	public static int pinguCode(int n, int m) {
 		// TODO
-		return -1;
-	}
+		int summe;
+		if (n == 0) {
+			int ze1 = ze;
+			ze = 0;
+			summe = m + ze1;
+			return summe;
+		}
+		int vergleich = ze + n;
+		if (vergleich % 2 == 0) {//wenn gerade
+				ze += (n / 2);
+				return pinguCode(m, n / 2);
+		}
+		else {//Wenn ungerade
+				ze += m;
+				return pinguCode(n - 1, m / 2);
+			}
 
+		}
 	// task 4
 	public static String pinguDNA(int f, int m) {
 		// TODO
@@ -65,7 +81,7 @@ public class RecursivePingulogy {
 
 	public static void main(String[] args) {
 		// switch value to test other tasks
-		int testTask = 2;
+		int testTask = 3;
 
 		switch (testTask) {
 		case 1:
