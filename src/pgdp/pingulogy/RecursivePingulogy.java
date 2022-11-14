@@ -2,23 +2,53 @@ package pgdp.pingulogy;
 
 public class RecursivePingulogy {
 
+	static int i = -1;
+	static int counter = 0;
 	// task 1
 	public static long pinguSequenceRec(int n, int p0, int p1, int p2) {
 		// TODO
-		return -1;
+		int[] trio = new int[3];
+		trio[0] = p0;
+		trio[1] = p1;
+		trio[2] = p2;
+		if (counter < 3) {
+			if (i >= 2) {
+				i = 0;
+			}
+			i++;
+			counter++;
+			return trio[i];
+		}
+		else {
+			return 0;
+		}
+
 	}
 
 	// task 2
 	// Hint: pinguF and pinguM are not static (and must not be changed to it!)
 	// more information in the main-method below
+
 	public int pinguF(int n) {
 		// TODO
-		return -1;
+
+		if (n == 0) {
+			n = 1;
+			return n;
+		}
+		else {
+			return n - pinguM(pinguF(n - 1));
+		}
 	}
 
 	public int pinguM(int n) {
 		// TODO
-		return -1;
+		if (n == 0) {
+			return n;
+		}
+		else {
+			return n - pinguF(pinguM(n - 1));
+		}
 	}
 
 	// task 3
@@ -35,7 +65,7 @@ public class RecursivePingulogy {
 
 	public static void main(String[] args) {
 		// switch value to test other tasks
-		int testTask = 1;
+		int testTask = 2;
 
 		switch (testTask) {
 		case 1:
