@@ -86,7 +86,7 @@ public class RecursivePingulogy {
 		}
 		else if (f != 0 && m == 0) {
 			f /= 2;
-			return pinguDNA(f, m) + "TB";
+			return pinguDNA(f, m) + "T";
 
 		}
 		else {
@@ -154,7 +154,7 @@ public class RecursivePingulogy {
 			break;
 		case 4:
 			System.out.println("Task 4 example output");
-			System.out.println("pinguDNA(21, 25) = " + pinguDNA(21, 25));
+			System.out.println("pinguDNA(21, 25) = " + pinguDNA(0, 2));
 			break;
 		default:
 			System.out.println("There are only 4 tasks!");
