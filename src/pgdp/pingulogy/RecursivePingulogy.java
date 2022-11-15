@@ -74,14 +74,49 @@ public class RecursivePingulogy {
 
 		}
 	// task 4
+	//static int zahler = 0;
 	public static String pinguDNA(int f, int m) {
 		// TODO
-		return "TODO";
+		if (f == 0 && m == 0) {
+			return "";
+		}
+		else if (f == 0 && m != 0) {
+			m /= 2;
+			return pinguDNA(f, m) + "A";
+		}
+		else if (f != 0 && m == 0) {
+			f /= 2;
+			return pinguDNA(f, m) + "TB";
+
+		}
+		else {
+			if ((f % 2 == 0 && m % 2 == 0) || (f % 2 != 0 && m % 2 != 0) ) {//Wenn mit selben Bit-Wert am Ende
+				if (f > m) {
+
+					return pinguDNA(f /= 2, m /= 2) + "GT";
+				}
+				else if (f < m) {
+
+					return pinguDNA(f /= 2, m /= 2) + "GA";
+				}
+				else {//f == m
+
+					return pinguDNA(f /= 2, m /= 2) + "GC";
+				}
+			}
+			else if (f % 2 != 0 && m % 2 == 0) {//Wenn f ungerade
+
+				return pinguDNA(f /= 2, m /= 2) + "TC";
+			}
+			else {//Wenn m ungerade
+				return pinguDNA(f /= 2, m /= 2) + "AC";
+			}
+		}
 	}
 
 	public static void main(String[] args) {
 		// switch value to test other tasks
-		int testTask = 3;
+		int testTask = 4;
 
 		switch (testTask) {
 		case 1:
