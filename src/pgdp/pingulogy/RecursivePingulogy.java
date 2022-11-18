@@ -20,13 +20,11 @@ public class RecursivePingulogy {
 			return p2;
 		}
 
-		if (n < 0) {//negativ
+		if (n <= 0) {//negativ
 			int i = n;
 			i = -1 * i;
-			if (n > p0 || n > p1 || n > p2) {
-				return n;
-			}
-			else {
+
+			 {
 				if (testarr1[i] != 0) {
 					return testarr1[i];
 				}
@@ -146,7 +144,7 @@ public class RecursivePingulogy {
 		switch (testTask) {
 		case 1:
 			System.out.println("Task 1 example output");
-			for (int i = -122; i < 0; i++) {
+			for (int i = -122; i < 145; i++) {
 				System.out.println(i + ": " + pinguSequenceRec(i, 1, 1, 2));
 			}
 			break;
