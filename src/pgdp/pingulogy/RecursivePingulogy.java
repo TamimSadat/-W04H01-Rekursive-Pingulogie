@@ -6,6 +6,7 @@ public class RecursivePingulogy {
 	static int counter = 0;
 
 	static long[] testarr = new long[145];
+	static long[] testarr1 = new long[145];
 	// task 1
 	public static long pinguSequenceRec(int n, int p0, int p1, int p2) {
 		// TODO
@@ -20,15 +21,17 @@ public class RecursivePingulogy {
 		}
 
 		if (n < 0) {//negativ
+			int i = n;
+			i = -1 * i;
 			if (n > p0 || n > p1 || n > p2) {
 				return n;
 			}
 			else {
-				if (testarr[-n] != 0) {
-					return testarr[-n];
+				if (testarr1[i] != 0) {
+					return testarr1[i];
 				}
 				long n1 = 2 * pinguSequenceRec(-1 * n, p0, p1, p2);
-				testarr[-n] = n1;
+				testarr1[i] = n1;
 				return n1;
 			}
 		}
@@ -143,7 +146,7 @@ public class RecursivePingulogy {
 		switch (testTask) {
 		case 1:
 			System.out.println("Task 1 example output");
-			for (int i = -122; i < 145; i++) {
+			for (int i = -122; i < 0; i++) {
 				System.out.println(i + ": " + pinguSequenceRec(i, 1, 1, 2));
 			}
 			break;
