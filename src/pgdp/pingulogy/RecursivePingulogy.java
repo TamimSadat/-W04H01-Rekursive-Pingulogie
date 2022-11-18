@@ -9,6 +9,9 @@ public class RecursivePingulogy {
 	static long[] testarr1;
 	public static long hey(int n, int p0, int p1, int p2) {
 		// TODO
+		if (p0 == 0 && p1 == 0 && p2 == 0  ) {
+			return 0;
+		}
 
 		if (n == 0) {
 			return p0;
