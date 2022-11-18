@@ -5,12 +5,10 @@ public class RecursivePingulogy {
 	static int i = 0;
 	static int counter = 0;
 
-	static long[] testarr = new long[146];
-	static long[] testarr1 = new long[146];
+	static long[] testarr;
+	static long[] testarr1;
 	public static long hey(int n, int p0, int p1, int p2) {
 		// TODO
-		long[] testarr = new long[146];
-		long[] testarr1 = new long[146];
 
 		if (n == 0) {
 			return p0;
@@ -52,44 +50,11 @@ public class RecursivePingulogy {
 	// task 1
 	public static long pinguSequenceRec(int n, int p0, int p1, int p2) {
 		// TODO
-
-		if (n == 0) {
-			return p0;
-		}
-		if (n == 1) {
-			return p1;
-		}
-		if (n == 2) {
-			return p2;
-		}
-
-		if (n <= 0) {//negativ
-			int i = n;
-			i = -1 * i;
-
-			 {
-				if (testarr1[i] != 0) {
-					return testarr1[i];
-				}
-				long n1 = 2 * pinguSequenceRec(-1 * n, p0, p1, p2);
-				testarr1[i] = n1;
-				return n1;
-			}
-		}
-		else {//positiv
-			if (n < p0 || n < p1 || n < p2) {
-				return n;
-			}
-			else {
-				if (testarr[n] != 0) {
-					return testarr[n];
-				}
-				long n2 = pinguSequenceRec(n - 1, p0, p1, p2) - pinguSequenceRec(n - 2, p0, p1, p2) + 2 * pinguSequenceRec(n - 3, p0, p1, p2);
-				testarr[n] = n2;
-				return n2;
-			}
-		}
+		 testarr = new long[146];
+		 testarr1 = new long[146];
+		return hey(n, p0, p1, p2);
 	}
+
 
 	// task 2
 	// Hint: pinguF and pinguM are not static (and must not be changed to it!)
