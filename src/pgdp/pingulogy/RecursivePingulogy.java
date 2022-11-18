@@ -2,27 +2,49 @@ package pgdp.pingulogy;
 
 public class RecursivePingulogy {
 
-	static int i = -1;
+	static int i = 0;
 	static int counter = 0;
+
+	static long[] testarr = new long[145];
 	// task 1
 	public static long pinguSequenceRec(int n, int p0, int p1, int p2) {
 		// TODO
-		int[] trio = new int[3];
-		trio[0] = p0;
-		trio[1] = p1;
-		trio[2] = p2;
-		if (counter < 3) {
-			if (i >= 2) {
-				i = 0;
-			}
-			i++;
-			counter++;
-			return trio[i];
+		if (n == 0) {
+			return p0;
 		}
-		else {
-			return 0;
+		if (n == 1) {
+			return p1;
+		}
+		if (n == 2) {
+			return p2;
 		}
 
+		if (n < 0) {//negativ
+			if (n > p0 || n > p1 || n > p2) {
+				return n;
+			}
+			else {
+				if (testarr[-n] != 0) {
+					return testarr[-n];
+				}
+				long n1 = 2 * pinguSequenceRec(-1 * n, p0, p1, p2);
+				testarr[-n] = n1;
+				return n1;
+			}
+		}
+		else {//positiv
+			if (n < p0 || n < p1 || n < p2) {
+				return n;
+			}
+			else {
+				if (testarr[n] != 0) {
+					return testarr[n];
+				}
+				long n2 = pinguSequenceRec(n - 1, p0, p1, p2) - pinguSequenceRec(n - 2, p0, p1, p2) + 2 * pinguSequenceRec(n - 3, p0, p1, p2);
+				testarr[n] = n2;
+				return n2;
+			}
+		}
 	}
 
 	// task 2
@@ -116,12 +138,12 @@ public class RecursivePingulogy {
 
 	public static void main(String[] args) {
 		// switch value to test other tasks
-		int testTask = 4;
+		int testTask = 1;
 
 		switch (testTask) {
 		case 1:
 			System.out.println("Task 1 example output");
-			for (int i = 0; i < 145; i++) {
+			for (int i = -122; i < 145; i++) {
 				System.out.println(i + ": " + pinguSequenceRec(i, 1, 1, 2));
 			}
 			break;
