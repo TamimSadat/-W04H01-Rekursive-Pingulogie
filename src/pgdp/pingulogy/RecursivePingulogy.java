@@ -2,7 +2,6 @@ package pgdp.pingulogy;
 
 public class RecursivePingulogy {
 
-	static int i = 0;
 	static int counter = 0;
 
 	static long[] testarr;
