@@ -2,8 +2,6 @@ package pgdp.pingulogy;
 
 public class RecursivePingulogy {
 
-	static int counter = 0;
-
 	static long[] testarr;
 	static long[] testarr1;
 	public static long hey(int n, int p0, int p1, int p2) {
@@ -11,7 +9,6 @@ public class RecursivePingulogy {
 		if (p0 == 0 && p1 == 0 && p2 == 0  ) {
 			return 0;
 		}
-
 		if (n == 0) {
 			return p0;
 		}
@@ -23,17 +20,12 @@ public class RecursivePingulogy {
 		}
 
 		if (n <= 0) {//negativ
-			int i = n;
-			i = -1 * i;
-
-			{
-				if (testarr1[i] != 0) {
-					return testarr1[i];
+			if (testarr1[-n] != 0) {
+					return testarr1[-n];
 				}
-				long n1 = 2 * hey(-1 * n, p0, p1, p2);
-				testarr1[i] = n1;
-				return n1;
-			}
+			long n1 = 2 * hey(-1 * n, p0, p1, p2);
+			testarr1[-n] = n1;
+			return n1;
 		}
 		else {//positiv
 			if (n < p0 || n < p1 || n < p2) {
