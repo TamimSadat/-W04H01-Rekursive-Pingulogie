@@ -4,22 +4,26 @@ public class RecursivePingulogy {
 
 	static long[] testarr;
 	static long[] testarr1;
+	static int i = 0;
 	public static long hey(int n, int p0, int p1, int p2) {
 		// TODO
 		if (p0 == 0 && p1 == 0 && p2 == 0  ) {
+			i = 0;
 			return 0;
 		}
 		if (n == 0) {
+			i = 1;
 			return p0;
 		}
 		if (n == 1) {
+			i = 2;
 			return p1;
 		}
 		if (n == 2) {
 			return p2;
 		}
 
-		if (n <= 0) {//negativ
+		if (n < 0) {//negativ
 			if (testarr1[-n] != 0) {
 					return testarr1[-n];
 				}
@@ -28,7 +32,7 @@ public class RecursivePingulogy {
 			return n1;
 		}
 		else {//positiv
-			if (n < p0 || n < p1 || n < p2) {
+			if (n < 3) {
 				return n;
 			}
 			else {
@@ -146,8 +150,8 @@ public class RecursivePingulogy {
 		switch (testTask) {
 		case 1:
 			System.out.println("Task 1 example output");
-			for (int i = 0; i < 145; i++) {
-				System.out.println(i + ": " + pinguSequenceRec(i, 1, 1, 2));
+			for (int i = -122; i < 145; i++) {
+				System.out.println(i + ": " + pinguSequenceRec(i, 30, 31, 32));
 			}
 			break;
 		case 2:
